@@ -49,7 +49,7 @@ To start a new project:
 1. Run the following in the directory where you want to create the project.
 
     ``` bash
-    cookiecutter ADD LINK HERE
+    cookiecutter https://github.com/TTitcombe/cookiecutter-data-science
     ```
 
 2. Review project files and amend as required. For example:

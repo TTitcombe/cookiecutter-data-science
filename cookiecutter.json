@@ -2,11 +2,10 @@
     "repo_name": "project_name",
     "module_name": "{{ cookiecutter.repo_name | replace('-', '_') }}",
     "package_name": "{{ cookiecutter.module_name | replace('_', '-') }}",
-    "env_name": "{{ cookiecutter.package_name }}-dev",
     "author_name": "Your name (or your organization/company/team)",
     "description": "A short description of the project.",
     "project_url": "",
     "created_date": "{% now 'local' %}",
-    "template_url": "FILL THIS IN",
+    "template_url": "https://github.com/TTitcombe/cookiecutter-data-science",
     "template_version": "auto"
 }
