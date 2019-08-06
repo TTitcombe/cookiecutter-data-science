@@ -54,8 +54,6 @@
 
 - [invoke][invoke]:
   Used for task execution.
-  Needs to be installed in your default Python environment
-  so that you can run the [tasks](#tasks) that create the virtual environment.
 
 - [pre-commit][pre-commit]:
   Used for automating tasks on version control.
@@ -82,8 +80,6 @@ These are defined in the [`tasks` module](tasks).
 See `invoke -l` for descriptions and `tasks` for definitions.
 The main tasks are listed below.
 
-The default conda environment is called `{{ cookiecutter.env_name }}`.
-This conda environment is activated as part of these tasks.
 
 <table>
 <thead>
