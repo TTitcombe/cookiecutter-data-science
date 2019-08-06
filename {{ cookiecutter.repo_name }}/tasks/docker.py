@@ -7,7 +7,7 @@ from .internal import os_name
 
 @task
 def pull(ctx, image_name):
-    ctx.run('docker pull {}'.format(image_name))
+    ctx.run("docker pull {}".format(image_name))
 
 
 @task
@@ -18,20 +18,24 @@ def push(ctx):
 @task
 def build_image(ctx, image_name):
     if not os.path.isfile("docker/Dockerfile"):
-        raise RuntimeError("You must invoke this command from the top level of the project")
+        raise RuntimeError(
+            "You must invoke this command from the top level of the project"
+        )
 
-    ctx.run('docker build --tag={} -f docker/Dockerfile .'.format(image_name))
+    ctx.run("docker build --tag={} -f docker/Dockerfile .".format(image_name))
 
 
-def _run_container(ctx, image_name, use_volume=False, use_jupyter=False, name=None, cmd=None):
-    cmd_string = 'docker run -it '
+def _run_container(
+    ctx, image_name, use_volume=False, use_jupyter=False, name=None, cmd=None
+):
+    cmd_string = "docker run -it "
     if use_volume:
-        cwd = '%CD%' if os_name == "nt" else '$(pwd)'
-        cmd_string += '-v {}:/home/work '.format(cwd)
+        cwd = "%CD%" if os_name == "nt" else "$(pwd)"
+        cmd_string += "-v {}:/home/work ".format(cwd)
     if use_jupyter:
-        cmd_string += '-p 8888:8888 '
+        cmd_string += "-p 8888:8888 "
     if name:
-        cmd_string += '--name={} '.format(name)
+        cmd_string += "--name={} ".format(name)
 
     cmd_string += image_name
 
@@ -53,4 +57,6 @@ def run_python(ctx, image_name, name=None):
 
 @task
 def run(ctx, image_name, name=None):
-    _run_container(ctx, image_name, use_volume=True, use_jupyter=True, name=name, cmd="/bin/bash")
+    _run_container(
+        ctx, image_name, use_volume=True, use_jupyter=True, name=name, cmd="/bin/bash"
+    )

@@ -4,28 +4,28 @@ import pathlib
 import pytest
 
 expected_dirs = [
-    '',  # base directory
-    'analysis',
-    'data',
-    'data/external',
-    'data/interim',
-    'data/processed',
-    'data/raw',
-    'docs',
-    'examples',
-    'models',
-    'src',
-    'src/project_name',
-    'tests',
-    'tasks',
+    "",  # base directory
+    "analysis",
+    "data",
+    "data/external",
+    "data/interim",
+    "data/processed",
+    "data/raw",
+    "docs",
+    "examples",
+    "models",
+    "src",
+    "src/project_name",
+    "tests",
+    "tasks",
 ]
 template_files = [
-    'README.md',
-    'setup.py',
-    'setup.cfg',
-    '.gitignore',
-    'tests/test_about.py',
-    'tasks/internal.py',
+    "README.md",
+    "setup.py",
+    "setup.cfg",
+    ".gitignore",
+    "tests/test_about.py",
+    "tasks/internal.py",
 ]
 
 
@@ -54,11 +54,11 @@ def test_no_pinned_environment(cookies):
 
     # pinned dependencies file not created yet
     baked_project = pathlib.Path(result.project)
-    reqs_path = baked_project / 'environment.yml'
+    reqs_path = baked_project / "environment.yml"
     assert not reqs_path.exists()
 
 
-@pytest.mark.parametrize('filename', template_files)
+@pytest.mark.parametrize("filename", template_files)
 def test_no_curlies(cookies, filename):
     result = cookies.bake()
 
@@ -78,15 +78,10 @@ def no_curlies(filepath):
     Utility to make sure no curly braces appear in a file.
     That is, was jinja able to render everthing?
     """
-    with open(filepath, 'r') as f:
+    with open(filepath, "r") as f:
         data = f.read()
 
-    template_strings = [
-        '{{',
-        '}}',
-        '{%',
-        '%}'
-    ]
+    template_strings = ["{{", "}}", "{%", "%}"]
 
     template_strings_in_file = [s for s in template_strings if s in data]
     return not template_strings_in_file

@@ -5,9 +5,4 @@ from . import internal
 
 
 ns = Collection(docker)
-ns.configure({
-    'run': {
-        'shell': internal.shell,
-        'pty': internal.pty,
-    }
-})
+ns.configure({"run": {"shell": internal.shell, "pty": internal.pty}})
