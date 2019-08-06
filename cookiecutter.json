@@ -7,5 +7,6 @@
     "project_url": "",
     "created_date": "{% now 'local' %}",
     "template_url": "https://github.com/TTitcombe/cookiecutter-data-science",
-    "template_version": "auto"
+    "template_version": "auto",
+    "_extensions": ["jinja2_time.TimeExtension", "jinja2_git.GitExtension"]
 }
