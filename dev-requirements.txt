@@ -1,0 +1,14 @@
+invoke  # for command aliases
+pre-commit  # for automating tasks on commit
+
+# for testing
+pytest
+pytest-cookies  # for cookiecutter tests
+
+# for static analysis
+flake8  # for static checking
+flake8-bugbear  # for static checking rules
+flake8-mypy  # for static checking rules
+
+# for formatting
+black  # for code formatting

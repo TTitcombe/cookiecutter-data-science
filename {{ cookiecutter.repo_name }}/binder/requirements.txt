@@ -1,0 +1,36 @@
+##### python packages for the Docker container #####
+# Some packages will already be in the base image
+# but we include them here:
+#   a) to mitigate any regression in the base image
+#   b) for transparency
+
+# "!" signifies that the package should be in the base image
+
+## Mathematics ##
+numpy                               #!
+scipy                               #!
+pandas                              #!
+scikit-learn                        #!
+
+## Visualisation ##
+matplotlib                          #!
+seaborn                             #!
+altair >=3
+
+## Image analysis ##
+scikit-image                        #!
+
+## Distributed computing ##
+dask                                #!
+
+## Web interaction ##
+requests
+beautifulsoup4                      #!
+
+## Utility ##
+tqdm
+
+## Code quality ##
+flake8                              # static analysis
+black                               # code formatting
+
